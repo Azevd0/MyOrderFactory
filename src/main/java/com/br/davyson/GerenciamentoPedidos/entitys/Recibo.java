@@ -1,0 +1,64 @@
+package com.br.davyson.GerenciamentoPedidos.entitys;
+
+import com.br.davyson.GerenciamentoPedidos.dto.ReciboResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.enums.FormaPagamento;
+import jakarta.persistence.*;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+import java.util.Objects;
+
+@Entity
+public class Recibo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private LocalDateTime dataFechamento;
+    private BigDecimal valorTotal;
+
+    @Enumerated(EnumType.STRING)
+    private FormaPagamento formaPagamento;
+
+    public Recibo(LocalDateTime dataFechamento, BigDecimal valorTotal, String detalheConsumo, FormaPagamento formaPagamento) {
+        this.id = id;
+        this.dataFechamento = dataFechamento;
+        this.valorTotal = valorTotal;
+        this.formaPagamento = formaPagamento;
+    }
+
+    public Recibo(){}
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDataFechamento() {
+        return dataFechamento;
+    }
+
+    public void setDataFechamento(LocalDateTime dataFechamento) {
+        this.dataFechamento = dataFechamento;
+    }
+
+    public BigDecimal getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
+    }
+
+}
