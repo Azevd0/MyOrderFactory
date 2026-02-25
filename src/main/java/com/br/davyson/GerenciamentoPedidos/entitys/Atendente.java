@@ -3,11 +3,9 @@ package com.br.davyson.GerenciamentoPedidos.entitys;
 import com.br.davyson.GerenciamentoPedidos.dto.AtendenteRequestDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 public class Atendente {

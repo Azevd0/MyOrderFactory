@@ -1,9 +1,7 @@
 package com.br.davyson.GerenciamentoPedidos.entitys;
 
-import com.br.davyson.GerenciamentoPedidos.dto.CategoriaResponseDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import java.util.Objects;
 
 @Entity
 public class Categoria {

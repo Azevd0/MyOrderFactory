@@ -1,12 +1,9 @@
 package com.br.davyson.GerenciamentoPedidos.entitys;
 
-import com.br.davyson.GerenciamentoPedidos.dto.ReciboResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.enums.FormaPagamento;
 import jakarta.persistence.*;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Entity
 public class Recibo {

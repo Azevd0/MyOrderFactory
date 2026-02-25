@@ -4,8 +4,6 @@ import com.br.davyson.GerenciamentoPedidos.entitys.Recibo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Objects;
-
 public class ReciboResponseDTO {
     private Long id;
     private LocalDateTime dataFechamento;

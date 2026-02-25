@@ -1,5 +1,4 @@
 package com.br.davyson.GerenciamentoPedidos.controllers;
-
 import com.br.davyson.GerenciamentoPedidos.entitys.Atendente;
 import com.br.davyson.GerenciamentoPedidos.services.AtendenteService;
 import com.br.davyson.GerenciamentoPedidos.dto.AtendenteResponseDTO;
