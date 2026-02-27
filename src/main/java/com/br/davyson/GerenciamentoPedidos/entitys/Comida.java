@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.util.Objects;
 
 @Entity
 public class Comida {
@@ -67,9 +68,19 @@ public class Comida {
     public Categoria getCategoria() {
         return categoria;
     }
-
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Comida comida = (Comida) o;
+        return Objects.equals(id, comida.id) && Objects.equals(nome, comida.nome) && Objects.equals(descricao, comida.descricao) && Objects.equals(preco, comida.preco) && Objects.equals(categoria, comida.categoria);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome, descricao, preco, categoria);
+    }
 }

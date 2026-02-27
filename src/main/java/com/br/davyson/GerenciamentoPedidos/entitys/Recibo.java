@@ -4,6 +4,7 @@ import com.br.davyson.GerenciamentoPedidos.enums.FormaPagamento;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 @Entity
 public class Recibo {
@@ -58,4 +59,15 @@ public class Recibo {
         this.formaPagamento = formaPagamento;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Recibo recibo = (Recibo) o;
+        return Objects.equals(id, recibo.id) && Objects.equals(dataFechamento, recibo.dataFechamento) && Objects.equals(valorTotal, recibo.valorTotal) && formaPagamento == recibo.formaPagamento;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, dataFechamento, valorTotal, formaPagamento);
+    }
 }

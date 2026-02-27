@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Atendente {
@@ -79,5 +80,17 @@ public class Atendente {
 
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Atendente atendente = (Atendente) o;
+        return Objects.equals(id, atendente.id) && Objects.equals(login, atendente.login) && Objects.equals(nome, atendente.nome) && Objects.equals(senha, atendente.senha) && Objects.equals(pedidos, atendente.pedidos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, login, nome, senha, pedidos);
     }
 }

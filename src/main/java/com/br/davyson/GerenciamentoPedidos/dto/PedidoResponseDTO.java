@@ -38,18 +38,6 @@ public class PedidoResponseDTO {
         this.saldoRestante = this.valorTotal.subtract(this.valorPago).max(BigDecimal.ZERO);
         this.data = pedido.getData();
     }
-
-    public PedidoResponseDTO(Long id, Integer mesa, String nomeAtendente, List<String> comidas, String observacao, BigDecimal taxaServico, BigDecimal valorTotal, LocalDateTime data) {
-        this.id = id;
-        this.mesa = mesa;
-        this.nomeAtendente = nomeAtendente;
-        this.comidas = comidas;
-        this.observacao = observacao;
-        this.taxaServico = taxaServico;
-        this.valorTotal = valorTotal;
-        this.data = data;
-    }
-
     public Long getId() {
         return id;
     }
@@ -108,30 +96,5 @@ public class PedidoResponseDTO {
 
     public LocalDateTime getData() {
         return this.data;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        PedidoResponseDTO that = (PedidoResponseDTO) o;
-        return Objects.equals(id, that.id) && Objects.equals(mesa, that.mesa) && Objects.equals(nomeAtendente, that.nomeAtendente) && Objects.equals(comidas, that.comidas) && Objects.equals(observacao, that.observacao) && Objects.equals(taxaServico, that.taxaServico) && Objects.equals(valorTotal, that.valorTotal);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, mesa, nomeAtendente, comidas, observacao, taxaServico, valorTotal);
-    }
-
-    @Override
-    public String toString() {
-        return "PedidoResponseDTO{" +
-                "id=" + id +
-                ", mesa=" + mesa +
-                ", nomeAtendente='" + nomeAtendente + '\'' +
-                ", comidas=" + comidas +
-                ", observacao='" + observacao + '\'' +
-                ", taxaServico=" + taxaServico +
-                ", valorTotal=" + valorTotal +
-                '}';
     }
 }

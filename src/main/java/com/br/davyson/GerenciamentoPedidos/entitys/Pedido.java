@@ -9,6 +9,7 @@ import java.math.RoundingMode;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Pedido {
@@ -115,6 +116,18 @@ public class Pedido {
     }
     public void setValorPago(BigDecimal valorPago) {
         this.valorPago = valorPago;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Pedido pedido = (Pedido) o;
+        return statusPagamento == pedido.statusPagamento && Objects.equals(id, pedido.id) && Objects.equals(mesa, pedido.mesa) && Objects.equals(atendente, pedido.atendente) && Objects.equals(versao, pedido.versao) && Objects.equals(comidas, pedido.comidas) && Objects.equals(observacao, pedido.observacao) && Objects.equals(valorPago, pedido.valorPago) && Objects.equals(data, pedido.data);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, mesa, atendente, versao, comidas, observacao, valorPago, statusPagamento, data);
     }
 }
 

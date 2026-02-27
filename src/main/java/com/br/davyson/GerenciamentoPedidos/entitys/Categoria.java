@@ -3,6 +3,8 @@ package com.br.davyson.GerenciamentoPedidos.entitys;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.Objects;
+
 @Entity
 public class Categoria {
     @Id
@@ -33,4 +35,15 @@ public class Categoria {
         this.nome = nome;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Categoria categoria = (Categoria) o;
+        return Objects.equals(id, categoria.id) && Objects.equals(nome, categoria.nome);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nome);
+    }
 }

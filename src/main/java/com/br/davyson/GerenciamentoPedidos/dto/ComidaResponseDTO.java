@@ -13,14 +13,6 @@ public class ComidaResponseDTO {
     private String descricao;
 
     public ComidaResponseDTO(){}
-
-    public ComidaResponseDTO(Long id, String nome, BigDecimal preco, String categoriaNome, String descricao) {
-        this.id = id;
-        this.nome = nome;
-        this.preco = preco;
-        this.categoriaNome = categoriaNome;
-        this.descricao = descricao;
-    }
     public ComidaResponseDTO(Comida comida){
         this.id = comida.getId();
         this.nome = comida.getNome();
@@ -72,28 +64,5 @@ public class ComidaResponseDTO {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        ComidaResponseDTO that = (ComidaResponseDTO) o;
-        return Objects.equals(id, that.id) && Objects.equals(nome, that.nome) && Objects.equals(preco, that.preco) && Objects.equals(categoriaNome, that.categoriaNome) && Objects.equals(descricao, that.descricao);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, nome, preco, categoriaNome, descricao);
-    }
-
-    @Override
-    public String toString() {
-        return "ComidaResponseDTO{" +
-                "id=" + id +
-                ", nome='" + nome + '\'' +
-                ", preco=" + preco +
-                ", categoriaNome='" + categoriaNome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                '}';
     }
 }
