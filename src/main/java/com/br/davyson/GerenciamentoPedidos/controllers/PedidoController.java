@@ -63,10 +63,10 @@ public class PedidoController {
     }
     @Operation(summary = "Remover um item específico do pedido")
     @DeleteMapping("/{mesa}/remover-item")
-    public ResponseEntity<String> removerItem(
+    public ResponseEntity<Void> removerItem(
             @PathVariable Integer mesa,
             @RequestParam String nome) {
         pedidoService.cancelarComida(mesa, nome);
-        return ResponseEntity.ok("Item removido com sucesso");
+        return ResponseEntity.noContent().build();
     }
 }

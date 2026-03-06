@@ -37,6 +37,7 @@ public class PedidoService {
         this.comidaService = comidaService;
     }
 
+    //  RASCUNHO - SÓ VOU CRIAR QUANDO A AUTENTICAÇÃO DE USUÁRIO E RESTRIÇÃO DE ACESSO ESTIVEREM FEITAS
     //    @Transactional
 //    public PedidoResponseDTO lancarPedido(PedidoRequestDTO dto) {
 //        String nomeUsuarioLogado = "Davyson de Azevedo";
@@ -98,12 +99,7 @@ public class PedidoService {
         Pedido pedidoAtualizado = pedidoRepository.save(pedidoDestino);
         return new PedidoResponseDTO(pedidoAtualizado);
     }
-    @Transactional
-    public void cancelarComida(Integer mesa, String comidaNome){
-        Pedido pedido = buscarPorMesa(mesa);
-        Comida comidaCancelada = comidaService.findComidaByName(comidaNome);
-        pedido.getComidas().remove(comidaCancelada);
-    }
+
 
     @Transactional
     public PedidoResponseDTO alterarMesa(Integer mesaAtual, Integer novaMesa) {
@@ -139,5 +135,11 @@ public class PedidoService {
             return new ReciboResponseDTO(recibo);
         }
         return new PedidoResponseDTO(pedidoRepository.save(pedido));
+    }
+    @Transactional
+    public void cancelarComida(Integer mesa, String comidaNome){
+        Pedido pedido = buscarPorMesa(mesa);
+        Comida comidaCancelada = comidaService.findComidaByName(comidaNome);
+        pedido.getComidas().remove(comidaCancelada);
     }
 }
