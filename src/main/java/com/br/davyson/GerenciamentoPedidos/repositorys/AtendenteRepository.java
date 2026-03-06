@@ -11,5 +11,4 @@ public interface AtendenteRepository extends JpaRepository<Atendente, Long> {
 
     boolean existsByNomeIgnoreCase(String nome);
     Optional<Atendente> findByNomeIgnoreCase(String nome);
-    boolean existsByLoginIgnoreCase(String name);
 }

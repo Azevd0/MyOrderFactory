@@ -24,7 +24,7 @@ public class AtendenteService {
         return atendenteRepository.findAll();
     }
 
-    public Atendente searchForName(String name){
+    public Atendente buscarPorNome(String name){
         return atendenteRepository.findByNomeIgnoreCase(name)
                 .orElseThrow(() -> new ObjectNotFoundException("Atendente não encontrado."));
     }
@@ -45,14 +45,7 @@ public class AtendenteService {
 
     @Transactional
     public Atendente updateAtendenteByName(String name, AtendenteRequestDTO dto) {
-        Atendente atendenteExistente = searchForName(name);
-
-        if (dto.login() != null && !dto.login().equalsIgnoreCase(atendenteExistente.getLogin())) {
-            if (atendenteRepository.existsByLoginIgnoreCase(dto.login())) {
-                throw new DataIntegrityViolationException("O login '" + dto.login() + "' já está em uso!");
-            }
-            atendenteExistente.setLogin(dto.login());
-        }
+        Atendente atendenteExistente = buscarPorNome(name);
 
         if (dto.nome() != null) atendenteExistente.setNome(dto.nome());
         if (dto.senha() != null) atendenteExistente.setSenha(dto.senha());
@@ -62,7 +55,7 @@ public class AtendenteService {
 
     @Transactional
     public void deleteUser(String name) {
-        Atendente atendente = searchForName(name);
+        Atendente atendente = buscarPorNome(name);
         atendenteRepository.delete(atendente);
     }
 }

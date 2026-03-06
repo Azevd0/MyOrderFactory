@@ -37,7 +37,7 @@ public class AtendenteController {
     @Operation(summary = "Buscar atendente por nome")
     @GetMapping("/busca/{nome}")
     public ResponseEntity<AtendenteResponseDTO> buscarPorNome(@PathVariable String nome) {
-        Atendente atendente = atendenteService.searchForName(nome);
+        Atendente atendente = atendenteService.buscarPorNome(nome);
         return ResponseEntity.ok(new AtendenteResponseDTO(atendente));
     }
     @Operation(summary = "Listar pedidos do atendente pelo seu id")
