@@ -12,5 +12,6 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long> {
 
     List<Pedido> findByStatusPagamentoFalse();
     Optional<Pedido> findByMesa(Integer mesa);
+    boolean existsByMesa(Integer mesa);
 
 }

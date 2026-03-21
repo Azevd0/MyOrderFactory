@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "comanda")
@@ -18,15 +20,15 @@ public class Comanda {
     private String atendenteNome;
 
 
-    private String comidaNome;
+    private List<String> comidaNome = new ArrayList<>();
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime dataLancamento = LocalDateTime.now();
 
-    public Comanda(Long id, Integer mesa, Atendente atendente, Comida comida, LocalDateTime dataLancamento) {
+    public Comanda(Long id, Integer mesa, Atendente atendente, List<Comida> comida, LocalDateTime dataLancamento) {
         this.id = id;
         this.mesa = mesa;
         this.atendenteNome = atendente.getNome();
-        this.comidaNome = comida.getNome();
+        this.comidaNome = comida.stream().map(Comida::getNome).toList();
         this.dataLancamento = dataLancamento;
     }
     public Comanda(){}
@@ -55,11 +57,11 @@ public class Comanda {
         this.atendenteNome = atendenteNome;
     }
 
-    public String getComidaNome() {
+    public List<String> getComidaNome() {
         return comidaNome;
     }
 
-    public void setComidaNome(String comidaNome) {
+    public void setComidaNome(List<String> comidaNome) {
         this.comidaNome = comidaNome;
     }
 

@@ -42,6 +42,9 @@ public class PedidoService {
         String nomeUsuario = "José Eduardo";
         Atendente atendente = atendenteService.buscarPorNome(nomeUsuario);
 
+        if (pedidoRepository.existsByMesa(dto.numeroMesa())) {
+            throw new DataIntegrityViolationException("A Mesa " + dto.numeroMesa() + " já possui um pedido em aberto!");
+        }
         List<Comida> comidas = dto.nomesComidas().stream()
                 .map(nome -> comidaRepository.findByNomeIgnoreCase(nome)
                         .orElseThrow(() -> new ObjectNotFoundException("Comida '" + nome + "' não encontrada.")))
@@ -56,13 +59,12 @@ public class PedidoService {
 
         Pedido pedidoSalvo = pedidoRepository.save(novoPedido);
 
-        comidas.forEach(comida -> {
             Comanda comanda = new Comanda();
             comanda.setMesa(pedidoSalvo.getMesa());
             comanda.setAtendenteNome(atendente.getNome());
-            comanda.setComidaNome(comida.getNome());
+            comanda.setComidaNome(comidas.stream().map(Comida::getNome).toList());
             comandaRepository.save(comanda);
-        });
+
 
         return new PedidoResponseDTO(pedidoSalvo);
     }
@@ -80,7 +82,7 @@ public class PedidoService {
             Comanda comanda = new Comanda();
             comanda.setMesa(pedido.getMesa());
             comanda.setAtendenteNome(pedido.getAtendente().getNome());
-            comanda.setComidaNome(novaComida.getNome());
+            comanda.getComidaNome().add(novaComida.getNome());
             comandaRepository.save(comanda);
 
         return new PedidoResponseDTO(pedidoRepository.save(pedido));
