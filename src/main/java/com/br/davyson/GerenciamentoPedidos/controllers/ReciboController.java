@@ -1,7 +1,7 @@
 package com.br.davyson.GerenciamentoPedidos.controllers;
 
-import com.br.davyson.GerenciamentoPedidos.dto.FaturamentoResponseDTO;
-import com.br.davyson.GerenciamentoPedidos.dto.ReciboResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.FaturamentoResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.ReciboResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.enums.Periodo;
 import com.br.davyson.GerenciamentoPedidos.services.ReciboService;
 import com.br.davyson.GerenciamentoPedidos.wrapper.ListWrapper;

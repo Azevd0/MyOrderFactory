@@ -1,8 +1,8 @@
 package com.br.davyson.GerenciamentoPedidos.services;
 
-import com.br.davyson.GerenciamentoPedidos.dto.AtendenteRequestDTO;
-import com.br.davyson.GerenciamentoPedidos.dto.AtendenteResponseDTO;
-import com.br.davyson.GerenciamentoPedidos.dto.PedidoResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.request.AtendenteRegisterRequest;
+import com.br.davyson.GerenciamentoPedidos.dto.response.AtendenteRegisterResponse;
+import com.br.davyson.GerenciamentoPedidos.dto.response.PedidoResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.entitys.Atendente;
 import com.br.davyson.GerenciamentoPedidos.exceptions.ObjectNotFoundException;
 import com.br.davyson.GerenciamentoPedidos.repositorys.AtendenteRepository;
@@ -24,9 +24,9 @@ public class AtendenteService {
         this.atendenteRepository = atendenteRepository;
     }
     @Cacheable(value = "user", key = "'atendente'")
-    public ListWrapper<AtendenteResponseDTO> listAll(){
-        List<AtendenteResponseDTO> atendentes = atendenteRepository.findAll()
-                .stream().map(AtendenteResponseDTO::new).toList();
+    public ListWrapper<AtendenteRegisterResponse> listAll(){
+        List<AtendenteRegisterResponse> atendentes = atendenteRepository.findAll()
+                .stream().map(AtendenteRegisterResponse::new).toList();
         return new ListWrapper<>(atendentes);
     }
     public Atendente buscarEntidadePorNome(String name){
@@ -34,10 +34,10 @@ public class AtendenteService {
                 .orElseThrow(() -> new ObjectNotFoundException("Atendente não encontrado."));
     }
     @Cacheable(value = "user", key = "'atendente_' + #name")
-    public AtendenteResponseDTO buscarPorNome(String name){
+    public AtendenteRegisterResponse buscarPorNome(String name){
         Atendente atendente = atendenteRepository.findByNomeIgnoreCase(name)
                 .orElseThrow(() -> new ObjectNotFoundException("Atendente não encontrado."));
-        return new AtendenteResponseDTO(atendente);
+        return new AtendenteRegisterResponse(atendente);
     }
 
     public Atendente findById(Long id){
@@ -51,24 +51,24 @@ public class AtendenteService {
     }
     @Transactional
     @CacheEvict(value = "user", allEntries = true)
-    public AtendenteResponseDTO saveAtendente(Atendente atendente){
+    public AtendenteRegisterResponse saveAtendente(Atendente atendente){
         if (atendenteRepository.existsByNomeIgnoreCase(atendente.getNome())) {
             throw new DataIntegrityViolationException("Já existe um atendente com esse nome!");
         }
         atendenteRepository.save(atendente);
-        return new AtendenteResponseDTO(atendente);
+        return new AtendenteRegisterResponse(atendente);
     }
 
     @Transactional
     @CacheEvict(value = "user", allEntries = true)
-    public AtendenteResponseDTO updateAtendenteByName(String name, AtendenteRequestDTO dto) {
+    public AtendenteRegisterResponse updateAtendenteByName(String name, AtendenteRegisterRequest dto) {
         Atendente atendenteExistente = buscarEntidadePorNome(name);
 
         if (dto.nome() != null) atendenteExistente.setNome(dto.nome());
         if (dto.senha() != null) atendenteExistente.setSenha(dto.senha());
 
         atendenteRepository.save(atendenteExistente);
-        return new AtendenteResponseDTO(atendenteExistente);
+        return new AtendenteRegisterResponse(atendenteExistente);
     }
 
     @Transactional

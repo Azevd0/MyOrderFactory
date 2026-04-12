@@ -1,6 +1,6 @@
 package com.br.davyson.GerenciamentoPedidos.services;
 
-import com.br.davyson.GerenciamentoPedidos.dto.CartaoClienteResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.CartaoClienteResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.entitys.CartaoCliente;
 import com.br.davyson.GerenciamentoPedidos.exceptions.ObjectNotFoundException;
 import com.br.davyson.GerenciamentoPedidos.repositorys.CartaoClienteRepository;

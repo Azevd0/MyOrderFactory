@@ -1,14 +1,12 @@
 package com.br.davyson.GerenciamentoPedidos.controllers;
 
-import com.br.davyson.GerenciamentoPedidos.dto.CartaoClienteResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.CartaoClienteResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.services.CartaoClienteService;
 import com.br.davyson.GerenciamentoPedidos.wrapper.ListWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/cartoes")

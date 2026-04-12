@@ -1,6 +1,6 @@
 package com.br.davyson.GerenciamentoPedidos.controllers;
 
-import com.br.davyson.GerenciamentoPedidos.dto.CategoriaResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.CategoriaResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.entitys.Categoria;
 import com.br.davyson.GerenciamentoPedidos.services.CategoriaService;
 import com.br.davyson.GerenciamentoPedidos.wrapper.ListWrapper;
@@ -10,8 +10,6 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/categoria")

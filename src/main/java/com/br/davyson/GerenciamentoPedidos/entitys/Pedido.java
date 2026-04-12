@@ -1,6 +1,6 @@
 package com.br.davyson.GerenciamentoPedidos.entitys;
 
-import com.br.davyson.GerenciamentoPedidos.dto.PedidoRequestDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.request.PedidoRequestDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 

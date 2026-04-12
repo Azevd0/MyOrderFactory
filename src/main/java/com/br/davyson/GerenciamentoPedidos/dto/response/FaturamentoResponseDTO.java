@@ -1,4 +1,4 @@
-package com.br.davyson.GerenciamentoPedidos.dto;
+package com.br.davyson.GerenciamentoPedidos.dto.response;
 import java.math.BigDecimal;
 public class FaturamentoResponseDTO {
 

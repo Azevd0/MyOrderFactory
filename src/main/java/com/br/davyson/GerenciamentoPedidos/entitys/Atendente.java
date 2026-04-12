@@ -1,7 +1,8 @@
 package com.br.davyson.GerenciamentoPedidos.entitys;
 
-import com.br.davyson.GerenciamentoPedidos.dto.AtendenteRequestDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.request.AtendenteRegisterRequest;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
@@ -14,8 +15,9 @@ public class Atendente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Login do usuário é obrigatório")
-    private String login;
+    @NotBlank(message = "E-mail do usuário é obrigatório")
+    @Email(message = "Formato de e-mail inválido")
+    private String email;
 
     @NotBlank(message = "Nome do usuário é obrigatório")
     private String nome;
@@ -27,28 +29,26 @@ public class Atendente {
     private List<Pedido> pedidos = new ArrayList<>();
 
     public Atendente(String login, String nome, String senha) {
-        this.login = login;
+        this.email = login;
         this.nome = nome;
         this.senha = senha;
     }
 
-    public Atendente(AtendenteRequestDTO dto) {
+    public Atendente(AtendenteRegisterRequest dto) {
         this.nome = dto.nome();
-        this.login = dto.login();
+        this.email = dto.email();
         this.senha = dto.senha();
     }
 
     public Atendente(){}
 
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        if (login != null) {
-            this.login = login.trim().toLowerCase().replace(" ", "_");
-        }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Long getId() {
@@ -87,11 +87,11 @@ public class Atendente {
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Atendente atendente = (Atendente) o;
-        return Objects.equals(id, atendente.id) && Objects.equals(login, atendente.login) && Objects.equals(nome, atendente.nome) && Objects.equals(senha, atendente.senha) && Objects.equals(pedidos, atendente.pedidos);
+        return Objects.equals(id, atendente.id) && Objects.equals(email, atendente.email) && Objects.equals(nome, atendente.nome) && Objects.equals(senha, atendente.senha) && Objects.equals(pedidos, atendente.pedidos);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, login, nome, senha, pedidos);
+        return Objects.hash(id, email, nome, senha, pedidos);
     }
 }

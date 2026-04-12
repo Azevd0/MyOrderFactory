@@ -1,7 +1,7 @@
 package com.br.davyson.GerenciamentoPedidos.controllers;
 
-import com.br.davyson.GerenciamentoPedidos.dto.ComidaRequestDTO;
-import com.br.davyson.GerenciamentoPedidos.dto.ComidaResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.request.ComidaRequestDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.ComidaResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.entitys.Comida;
 import com.br.davyson.GerenciamentoPedidos.services.ComidaService;
 import com.br.davyson.GerenciamentoPedidos.wrapper.ListWrapper;

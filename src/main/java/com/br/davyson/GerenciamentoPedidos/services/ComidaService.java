@@ -1,7 +1,7 @@
 package com.br.davyson.GerenciamentoPedidos.services;
 
-import com.br.davyson.GerenciamentoPedidos.dto.ComidaRequestDTO;
-import com.br.davyson.GerenciamentoPedidos.dto.ComidaResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.request.ComidaRequestDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.ComidaResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.entitys.Categoria;
 import com.br.davyson.GerenciamentoPedidos.entitys.Comida;
 import com.br.davyson.GerenciamentoPedidos.exceptions.ObjectNotFoundException;

@@ -1,6 +1,6 @@
 package com.br.davyson.GerenciamentoPedidos.services;
 
-import com.br.davyson.GerenciamentoPedidos.dto.CategoriaResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.CategoriaResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.entitys.Categoria;
 import com.br.davyson.GerenciamentoPedidos.exceptions.ObjectNotFoundException;
 import com.br.davyson.GerenciamentoPedidos.repositorys.CategoriaRepository;

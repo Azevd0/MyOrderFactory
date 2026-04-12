@@ -1,4 +1,4 @@
-package com.br.davyson.GerenciamentoPedidos.dto;
+package com.br.davyson.GerenciamentoPedidos.dto.response;
 
 import com.br.davyson.GerenciamentoPedidos.entitys.Recibo;
 import com.fasterxml.jackson.annotation.JsonFormat;

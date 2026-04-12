@@ -1,4 +1,4 @@
-package com.br.davyson.GerenciamentoPedidos.dto;
+package com.br.davyson.GerenciamentoPedidos.dto.request;
 
 import com.br.davyson.GerenciamentoPedidos.entitys.Comida;
 

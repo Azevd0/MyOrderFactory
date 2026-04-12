@@ -1,7 +1,7 @@
 package com.br.davyson.GerenciamentoPedidos.controllers;
 
-import com.br.davyson.GerenciamentoPedidos.dto.PedidoRequestDTO;
-import com.br.davyson.GerenciamentoPedidos.dto.PedidoResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.request.PedidoRequestDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.PedidoResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.enums.FormaPagamento;
 import com.br.davyson.GerenciamentoPedidos.services.PedidoService;
 import com.br.davyson.GerenciamentoPedidos.wrapper.ListWrapper;

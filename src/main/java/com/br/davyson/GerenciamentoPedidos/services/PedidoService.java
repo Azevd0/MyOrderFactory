@@ -1,8 +1,8 @@
 package com.br.davyson.GerenciamentoPedidos.services;
 
-import com.br.davyson.GerenciamentoPedidos.dto.PedidoRequestDTO;
-import com.br.davyson.GerenciamentoPedidos.dto.PedidoResponseDTO;
-import com.br.davyson.GerenciamentoPedidos.dto.ReciboResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.request.PedidoRequestDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.PedidoResponseDTO;
+import com.br.davyson.GerenciamentoPedidos.dto.response.ReciboResponseDTO;
 import com.br.davyson.GerenciamentoPedidos.entitys.*;
 import com.br.davyson.GerenciamentoPedidos.enums.BandeiraCartao;
 import com.br.davyson.GerenciamentoPedidos.enums.FormaPagamento;

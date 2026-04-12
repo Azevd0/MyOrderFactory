@@ -1,6 +1,8 @@
 package com.br.davyson.GerenciamentoPedidos.exceptions;
 import jakarta.persistence.OptimisticLockException;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,15 +52,16 @@ public class GlobalExceptions {
         );
         return ResponseEntity.status(HttpStatus.CONFLICT).body(standardError);
     }
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<ValidationError> methodArgumentNotValid(MethodArgumentNotValidException exception, HttpServletRequest request){
+    @ExceptionHandler(ConstraintViolationException.class)
+    public ResponseEntity<ValidationError> methodArgumentNotValid(ConstraintViolationException exception, HttpServletRequest request){
         ValidationError validationError = new ValidationError(
                 LocalDateTime.now(),
                 HttpStatus.BAD_REQUEST.value(),
                 "Erro na validação dos campos. Verifique os campos pendentes.",
                 request.getRequestURI());
-        for(FieldError error: exception.getBindingResult().getFieldErrors()){
-            validationError.addError(error.getDefaultMessage(), error.getField());
+        for (ConstraintViolation<?> violation : exception.getConstraintViolations()) {
+            String fieldName = violation.getPropertyPath().toString();
+            validationError.addError(fieldName, violation.getMessage());
         }
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(validationError);
     }

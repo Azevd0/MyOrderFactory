@@ -1,7 +1,6 @@
 package com.br.davyson.GerenciamentoPedidos.controllers;
 
-import com.br.davyson.GerenciamentoPedidos.dto.ComandaDTO;
-import com.br.davyson.GerenciamentoPedidos.entitys.Comanda;
+import com.br.davyson.GerenciamentoPedidos.dto.response.ComandaDTO;
 import com.br.davyson.GerenciamentoPedidos.enums.Periodo;
 import com.br.davyson.GerenciamentoPedidos.services.ComandaService;
 import com.br.davyson.GerenciamentoPedidos.wrapper.ListWrapper;
