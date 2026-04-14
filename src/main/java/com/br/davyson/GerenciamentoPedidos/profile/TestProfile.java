@@ -27,9 +27,4 @@ public class TestProfile {
     public CommandLineRunner instanciarCartoes(){
         return args -> dbApi.instanciarCartoes();
     }
-
-    @Bean
-    public CommandLineRunner instanciarUser(){
-        return args -> dbApi.instanciarUser();
-    }
 }
