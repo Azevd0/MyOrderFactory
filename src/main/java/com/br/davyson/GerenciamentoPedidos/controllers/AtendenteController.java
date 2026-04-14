@@ -30,7 +30,6 @@ public class AtendenteController {
     public ResponseEntity<AtendenteRegisterResponse> buscarPorNome(@PathVariable String nome) {
         return ResponseEntity.ok(atendenteService.buscarPorNome(nome));
     }
-    //listará pelo atendente logado
     @Operation(summary = "Listar pedidos do atendente pelo id")
     @GetMapping("/listarPedidos/{id}")
     public ResponseEntity<ListWrapper<PedidoResponseDTO>> listarPedidosDoAtendente(@PathVariable Long id){
@@ -38,14 +37,12 @@ public class AtendenteController {
         ListWrapper<PedidoResponseDTO> pedidos = atendenteService.listarPedidosDoAtendente(atendete);
         return ResponseEntity.ok(pedidos);
     }
-    //only admin
     @Operation(summary = "Atualizar atendente")
     @PutMapping("/atualizacao/{nome}")
     public ResponseEntity<AtendenteRegisterResponse> atualizar(@PathVariable String nome, @RequestBody @Valid AtendenteRegisterRequest dto) {
         AtendenteRegisterResponse atualizado = atendenteService.updateAtendenteByName(nome, dto);
         return ResponseEntity.ok(atualizado);
     }
-    //only admin
     @Operation(summary = "Remover atendente")
     @DeleteMapping("/remover/{nome}")
     public ResponseEntity<Void> deletar(@PathVariable String nome) {
