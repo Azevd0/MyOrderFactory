@@ -17,3 +17,13 @@ Quando terminar seus testes, você pode derrubar os contêineres e liberar os re
 ```bash
 docker compose --profile test down
 ```
+## Autenticação de usuário
+
+Quando autenticar o usuário registrado pelo "/auth/login" será retornado um token, copie e clique em "Authorize":
+
+<img width=50% alt="image" src="https://github.com/user-attachments/assets/66159a7d-ecee-4db6-bc28-91fda2b19953" />
+
+Em seguida, cole seu token aqui:
+
+<img width=50% alt="image" src="https://github.com/user-attachments/assets/15605e33-1f6a-41a5-a019-c1a5537a40f6" />
+
