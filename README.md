@@ -17,6 +17,12 @@ Quando terminar seus testes, você pode derrubar os contêineres e liberar os re
 ```bash
 docker compose --profile test down
 ```
+
+Com a aplicação em runtime, acesse a URL da documentação:
+
+```bash
+http://localhost:8080/swagger-ui/index.html
+```
 ## Autenticação de usuário
 
   <div align="center">
