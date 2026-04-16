@@ -1,4 +1,12 @@
 # Order Factory
+[![Java](https://img.shields.io/badge/Java-17%2B-orange?style=for-the-badge&logo=openjdk)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.3-brightgreen?style=for-the-badge&logo=springboot)](https://spring.io/projects/spring-boot)
+[![Spring Security](https://img.shields.io/badge/Spring%20Security-6.3.3-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)](https://spring.io/projects/spring-security)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
+[![Docker](https://img.shields.io/badge/Docker-Container-blue?style=for-the-badge&logo=docker)](https://www.docker.com/)
+[![Docker Compose](https://img.shields.io/badge/Docker%20Compose-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docs.docker.com/compose/)
+
 Sistema de restaurante desenvolvido para gerenciamento de pedidos e registro de usuários(atendentes), permitindo cadastro de entidades, listagem de cardápio, lançamento de pedidos e registro de pagamento. O sistema também conta com histórico de lançamentos, restrição de acesso para administradores e relatório financeiro. Para escalabilidade e performance, a API armazena dados em cache executado em container, tornando consultas e comandos mais ágeis.
 
 ## 🚀 Executando a API via Docker
