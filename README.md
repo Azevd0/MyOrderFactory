@@ -102,7 +102,7 @@ http://localhost:9091/swagger-ui/index.html
 </div>
 
 ## Cartões
-Para registro de pagamento na modalidade de cartão, há cartões fictícios instanciados em memória, mas APENAS PARA O PERFIL DE TESTE. Confira as senhas de cada um:
+Para registro de pagamento na modalidade de cartão, há cartões fictícios instanciados no perfil de teste. Confira as senhas de cada um:
 
 Id: 1 | Senha: @#1234
 
