@@ -1,5 +1,5 @@
 # Order Factory
-[![Java](https://img.shields.io/badge/Java-17%2B-orange?style=for-the-badge&logo=openjdk)](https://www.oracle.com/java/)
+[![Java](https://img.shields.io/badge/Java-21%2B-orange?style=for-the-badge&logo=openjdk)](https://www.oracle.com/java/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.3-brightgreen?style=for-the-badge&logo=springboot)](https://spring.io/projects/spring-boot)
 [![Spring Security](https://img.shields.io/badge/Spring%20Security-6.3.3-6DB33F?style=for-the-badge&logo=springsecurity&logoColor=white)](https://spring.io/projects/spring-security)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
@@ -34,6 +34,8 @@ Aqui, você terá que clicar em Add... e colocar cada variável manualmente (DB_
 
 
 ## Executando a API via Docker
+Para Executar o build certifique-se de que você tenha um compilador C++ na sua máquina. Você pode obtê-lo através do instalador do Visual Studio.
+
 Para iniciar OrderFactory, utilize o Docker Compose para executar os perfis de teste ou produção.
 ### Spring profile:
 no application.properties, altere o spring.profiles.active= para o perfil desejado (test/prod). Certifíque-se de descomentar a depencência do H2 no pom.xml.
